@@ -23,7 +23,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
     },
     children: [
       {
-        name: 'User',
+        name: 'Acl/User',
         path: '/acl/user',
         component: () => import('@/views/acl/user/index.vue'),
         meta: {
@@ -32,7 +32,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
         },
       },
       {
-        name: 'Role',
+        name: 'Acl/Role',
         path: '/acl/role',
         component: () => import('@/views/acl/role/index.vue'),
         meta: {
@@ -41,12 +41,66 @@ export const dynamicRoutes: RouteRecordRaw[] = [
         },
       },
       {
-        name: 'Permission',
+        name: 'Acl/Permision',
         path: '/acl/permission',
         component: () => import('@/views/acl/permission/index.vue'),
         meta: {
           title: '菜单管理',
           icon: 'Menu',
+        },
+      },
+    ],
+  },
+  // 医院管理
+  {
+    name: 'Hospital',
+    path: '/hospital',
+    component: LAYOUT,
+    redirect: '/hospital',
+    meta: {
+      title: '医院管理',
+      icon: 'Lock',
+    },
+    children: [
+      {
+        name: 'Hospital/Set',
+        path: '/hospital/hospitalset',
+        component: () => import('@/views/hospital/hospitalset/hospitalset.vue'),
+        meta: {
+          title: '医院设置',
+          icon: 'UserFilled',
+        },
+      },
+      {
+        name: 'Hospital/List',
+        path: '/hospital/hospitallist',
+        component: () =>
+          import('@/views/hospital/hospitallist/hospitallist.vue'),
+        meta: {
+          title: '医院列表',
+          icon: 'Avatar',
+        },
+      },
+    ],
+  },
+  // 数据管理
+  {
+    name: 'Cmn',
+    path: '/cmn',
+    component: LAYOUT,
+    redirect: '/cmn',
+    meta: {
+      title: '数据管理',
+      icon: 'Lock',
+    },
+    children: [
+      {
+        name: 'Cmn/Dict',
+        path: '/cmn/dict',
+        component: () => import('@/views/cmn/dict/dict.vue'),
+        meta: {
+          title: '数据字典',
+          icon: 'UserFilled',
         },
       },
     ],

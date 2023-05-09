@@ -48,7 +48,7 @@ export default defineConfig((config) => {
       port: Number(env.VITE_APP_PORT),
       proxy: {
         [env.VITE_APP_BASE_API]: {
-          target: 'http://sph-api.atguigu.cn',
+          target: 'http://syt-api.atguigu.cn',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/dev-api/, ''),
         },

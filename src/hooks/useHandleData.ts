@@ -1,11 +1,3 @@
-/*
- * @Author: 朽木白
- * @Date: 2023-03-08 14:34:18
- * @LastEditors: 1547702880@@qq.com
- * @LastEditTime: 2023-03-08 17:01:31
- * @Description: 请求接口二次弹窗确认
- */
-
 import { ElMessageBox, ElMessage } from 'element-plus'
 import { HandleData } from './type'
 
@@ -29,14 +21,21 @@ export const useHandleData = <P = any, R = any>(
       cancelButtonText: '取消',
       type: confirmType,
       draggable: true,
-    }).then(async () => {
-      const res = await api(params)
-      if (!res) return reject(false)
-      ElMessage({
-        type: 'success',
-        message: `${message}成功!`,
-      })
-      resolve(true)
     })
+      .then(async () => {
+        const res = await api(params)
+        if (!res) return reject(false)
+        ElMessage({
+          type: 'success',
+          message: `${message}成功!`,
+        })
+        resolve(true)
+      })
+      .catch((err) => {
+        ElMessage({
+          type: 'error',
+          message: `${err.data}`,
+        })
+      })
   })
 }
