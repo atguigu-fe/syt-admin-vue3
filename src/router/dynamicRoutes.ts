@@ -64,7 +64,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
     name: 'Hospital',
     path: '/hospital',
     component: LAYOUT,
-    redirect: '/hospital',
+    redirect: '/hospital/hospitalset',
     meta: {
       title: '医院管理',
       icon: 'Lock',
@@ -95,9 +95,16 @@ export const dynamicRoutes: RouteRecordRaw[] = [
         component: () => import('@/views/hospital/hospitallist/show.vue'),
         meta: {
           title: '查看',
-          icon: 'View',
           isHide: true,
-          isAffix: false,
+        },
+      },
+      {
+        name: 'Hospital/Schedule',
+        path: '/hospital/hospitallist/schedule',
+        component: () => import('@/views/hospital/hospitallist/schedule.vue'),
+        meta: {
+          title: '排班',
+          isHide: true,
         },
       },
     ],

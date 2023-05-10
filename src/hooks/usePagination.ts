@@ -25,3 +25,14 @@ export const usePage = ({ callback }: { callback: any }) => {
     currentChange,
   }
 }
+// <!--        分页-->
+// <el-pagination
+// v-model:current-page="pageInfo.currentPage"
+// v-model:page-size="pageInfo.pageSize"
+// :page-sizes="[10, 20, 30]"
+// layout="prev, pager, next,sizes,total"
+// :total="pageInfo.total"
+// :style="{ marginTop: '20px' }"
+// @size-change="sizeChange"
+// @current-change="currentChange"
+//     />

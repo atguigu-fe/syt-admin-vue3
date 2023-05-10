@@ -96,3 +96,57 @@ export interface HospitalDetailInterfaceRes {
   hospital: HospitalListInterfaceRes
   bookingRule: BookingRuleInterface
 }
+// 医院科室信息接口
+export interface DepartmentInterfaceRes {
+  depcode: string
+  depname: string
+  children: DepartmentInterfaceRes[]
+}
+// 预约详情接口
+export interface BookingScheduleRuleInterfaceRes {
+  baseMap: {
+    workDateString: string
+    releaseTime: string
+    bigname: string
+    stopTime: string
+    depname: string
+    hosname: string
+  }
+  bookingScheduleList: BookingScheduleDateInterface[]
+  total: number
+}
+// 预约日期接口
+export interface BookingScheduleDateInterface {
+  workDate: string
+  workDateMd: string
+  dayOfWeek: string
+  docCount: number
+  reservedNumber: number
+  availableNumber: number
+  status: number
+  curClass?: string
+}
+// 日程列表接口
+export interface ScheduleListInterfaceRes {
+  id: string
+  createTime: string
+  updateTime: string
+  isDeleted: number
+  param: {
+    dayOfWeek: string
+    depname: string
+    hosname: string
+  }
+  hoscode: string
+  depcode: string
+  title: string
+  docname: string
+  skill: string
+  workDate: string
+  workTime: number
+  reservedNumber: number
+  availableNumber: number
+  amount: number
+  status: number
+  hosScheduleId: string
+}

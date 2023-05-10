@@ -22,7 +22,7 @@
           type="primary"
           link
           icon="Document"
-          @click="handleDelete(scope.row)"
+          @click="handleSchedule(scope.row)"
         >
           排班
         </el-button>
@@ -30,7 +30,7 @@
           type="primary"
           link
           icon="Warning"
-          @click="handleDelete(scope.row)"
+          @click="updateHospitalStatus(scope.row)"
         >
           {{ scope.row.status === 0 ? '上线' : '下线' }}
         </el-button>
@@ -46,6 +46,7 @@ import {
   getCityOrDistrictList,
   getHospitalList,
   getProvinceList,
+  reqUpdateStatus,
 } from '@/api/hospital'
 import ProTable from '@/components/ProTable/src/ProTable.vue'
 import {
@@ -53,6 +54,7 @@ import {
   ProvinceInfoInterfaceRes,
 } from '@/api/hospital/types'
 import { useRouter } from 'vue-router'
+import { ElMessage } from 'element-plus'
 const router = useRouter()
 // *获取 ProTable 元素，调用其获取刷新数据方法
 const proTable = ref<InstanceType<typeof ProTable>>()
@@ -283,6 +285,27 @@ const handleView = (row: HospitalListInterfaceRes) => {
       id: row.id,
     },
   })
+}
+// 排班
+const handleSchedule = (row: HospitalListInterfaceRes) => {
+  console.log(row)
+  router.push({
+    path: '/hospital/hospitallist/schedule',
+    query: {
+      hoscode: row.hoscode,
+    },
+  })
+}
+// 更新医院上线下线状态
+const updateHospitalStatus = async (data: HospitalListInterfaceRes) => {
+  console.log(data)
+  try {
+    await reqUpdateStatus(data.id, data.status ? 0 : 1)
+    data.status = data.status ? 0 : 1
+    ElMessage.success('更新成功')
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 /* 生命周期 */

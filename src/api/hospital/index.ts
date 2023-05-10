@@ -1,5 +1,7 @@
 import http from '@/utils/http'
 import {
+  BookingScheduleRuleInterfaceRes,
+  DepartmentInterfaceRes,
   HospitalDetailInterfaceRes,
   HospitalListInterfacePageRes,
   HospitalListInterfaceReq,
@@ -8,6 +10,7 @@ import {
   HospitalSetListInterfaceRes,
   PageRes,
   ProvinceInfoInterfaceRes,
+  ScheduleListInterfaceRes,
 } from '@/api/hospital/types'
 
 /**
@@ -83,7 +86,57 @@ export function getCityOrDistrictList(id: number) {
     `/admin/cmn/dict/findByParentId/${id}`,
   )
 }
-// 查看医院详情接口
+/**
+ * @description  查看医院详情接口
+ * @param id
+ */
 export function getHospitalDetail(id: string) {
   return http.get<HospitalDetailInterfaceRes>(`/admin/hosp/hospital/show/${id}`)
+}
+/**
+ * @description  获取医院科室列表
+ * @param hoscode
+ */
+export function getDepartmentList(hoscode: string) {
+  return http.get<DepartmentInterfaceRes[]>(`/admin/hosp/department/${hoscode}`)
+}
+/**
+ * @description  获取预约信息列表
+ * @param page
+ * @param limit
+ * @param hoscode
+ * @param depcode
+ */
+export function getBookingScheduleRule(
+  page: number,
+  limit: number,
+  hoscode: string,
+  depcode: string,
+) {
+  return http.get<BookingScheduleRuleInterfaceRes>(
+    `/admin/hosp/schedule/getScheduleRule/${page}/${limit}/${hoscode}/${depcode}`,
+  )
+}
+/**
+ * @description  获取医生日程列表
+ * @param hoscode
+ * @param depcode
+ * @param workDate
+ */
+export function getScheduleDetail(
+  hoscode: string,
+  depcode: string,
+  workDate: string,
+) {
+  return http.get<ScheduleListInterfaceRes[]>(
+    `/admin/hosp/schedule/findScheduleList/${hoscode}/${depcode}/${workDate}`,
+  )
+}
+/**
+ * @description  更新医院状态
+ * @param id
+ * @param status
+ */
+export function reqUpdateStatus(id: string, status: number) {
+  return http.get(`/admin/hosp/hospital/updateStatus/${id}/${status}`)
 }
