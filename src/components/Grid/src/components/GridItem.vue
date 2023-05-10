@@ -39,7 +39,9 @@ watch(
   () => [shouldHiddenIndex.value, breakPoint.value],
   (n) => {
     if (attrs.index) {
-      isShow.value = !(n[0] !== -1 && parseInt(attrs.index) >= n[0])
+      isShow.value = !(
+        n[0] !== -1 && parseInt(attrs.index as string) >= (n[0] as number)
+      )
     }
   },
   { immediate: true },
