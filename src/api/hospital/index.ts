@@ -27,7 +27,7 @@ export function getHospitalSetList(params: HospitalSetListInterfaceReq) {
  * @description 批量删除医院设置
  * @param params
  */
-export function batchRemoveHospitalSet(params: number[]) {
+export function batchRemoveHospitalSet(params: string[]) {
   return http.delete(`/admin/hosp/hospitalSet/batchRemove`, params)
 }
 /**

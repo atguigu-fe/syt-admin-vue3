@@ -100,7 +100,7 @@ const openDialog = (title: string, rowData: Partial<Role.ResRoleList> = {}) => {
     title: title,
     rowData: { ...rowData },
     api: title === '新增' ? addRole : updateRole,
-    getTableList: proTable.value.getTableList,
+    getTableList: proTable.value?.getTableList,
   }
   DialogRef.value.acceptParams(params)
 }
@@ -113,7 +113,7 @@ const openDrawer = async (title: string, rowData: Role.ResRoleList) => {
     rowData,
     list: await getRolePermission(rowData!.id),
     api: assignRolePermission,
-    getTableList: proTable.value.getTableList,
+    getTableList: proTable.value?.getTableList,
   }
   DrawerRef.value.acceptParams(params)
 }
@@ -121,6 +121,6 @@ const openDrawer = async (title: string, rowData: Role.ResRoleList) => {
 // *根据id删除角色
 const handleDelete = async (row: Role.ResRoleList) => {
   await useHandleData(deleteRole, row.id, `删除${row.roleName}角色`)
-  proTable.value.getTableList()
+  proTable.value?.getTableList()
 }
 </script>

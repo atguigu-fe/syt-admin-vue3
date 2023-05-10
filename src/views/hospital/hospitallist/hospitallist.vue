@@ -203,7 +203,7 @@ async function getProvinceListHandle() {
       item.label = item.name
     })
     areaList.provinceList = res.data
-    proTable.value.enumMap.set('provinceCode', areaList.provinceList)
+    proTable.value?.enumMap.set('provinceCode', areaList.provinceList)
   } catch (error) {
     console.log(error)
   }
@@ -217,7 +217,7 @@ async function getCityList() {
         proTable.value?.searchParam?.provinceCode,
       )
       areaList.cityList = res.data
-      proTable.value.enumMap.set('cityCode', areaList.cityList)
+      proTable.value?.enumMap.set('cityCode', areaList.cityList)
       resetDistrict()
     }
   } catch (error) {
@@ -232,7 +232,7 @@ async function getDistrictList() {
         proTable.value?.searchParam?.cityCode,
       )
       areaList.districtList = res.data
-      proTable.value.enumMap.set('districtCode', areaList.districtList)
+      proTable.value?.enumMap.set('districtCode', areaList.districtList)
     }
   } catch (error) {
     console.log(error)
@@ -244,17 +244,17 @@ function resetCityAndDistrict() {
   areaList.districtCode = ''
   areaList.cityList = []
   areaList.districtList = []
-  proTable.value.enumMap.set('cityCode', [])
-  proTable.value.enumMap.set('districtCode', [])
-  proTable.value.searchParam.cityCode = ''
-  proTable.value.searchParam.districtCode = ''
+  proTable.value?.enumMap.set('cityCode', [])
+  proTable.value?.enumMap.set('districtCode', [])
+  proTable.value!.searchParam.cityCode = ''
+  proTable.value!.searchParam.districtCode = ''
 }
 // 重置区数据
 function resetDistrict() {
   areaList.districtCode = ''
   areaList.districtList = []
-  proTable.value.enumMap.set('districtCode', [])
-  proTable.value.searchParam.districtCode = ''
+  proTable.value?.enumMap.set('districtCode', [])
+  proTable.value!.searchParam.districtCode = ''
 }
 // 点击清空省份
 function provinceClear() {

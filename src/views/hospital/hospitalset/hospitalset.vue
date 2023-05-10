@@ -20,7 +20,7 @@
           type="danger"
           icon="Delete"
           plain
-          @click="batchDelete(scope.selectedListIds as number[])"
+          @click="batchDelete(scope.selectedListIds as string[])"
           :disabled="!scope.isSelected"
         >
           批量删除
@@ -127,15 +127,15 @@ const handleEdit = (row: HospitalSetListInterfaceRes) => {
 // 删除
 const handleDelete = async (row: HospitalSetListInterfaceRes) => {
   await useHandleData(removeHospitalSet, row.id as number, `删除${row.hosname}`)
-  proTable.value.getTableList()
+  proTable.value?.getTableList()
 }
-const batchDelete = async (ids: number[]) => {
+const batchDelete = async (ids: string[]) => {
   await useHandleData(batchRemoveHospitalSet, ids, '删除所选信息')
-  proTable.value.clearSelection()
-  proTable.value.getTableList()
+  proTable.value?.clearSelection()
+  proTable.value?.getTableList()
 }
 // 刷新页面
 function refresh() {
-  proTable.value.getTableList()
+  proTable.value?.getTableList()
 }
 </script>

@@ -105,11 +105,11 @@ const handleEdit = (row: any) => {
 // 删除
 const handleDelete = async (row: HospitalSetListInterfaceRes) => {
   await useHandleData(removeHospitalSet, row.id, `删除${row.hosname}`)
-  proTable.value.getTableList()
+  proTable.value?.getTableList()
 }
-const batchDelete = async (ids: number[]) => {
+const batchDelete = async (ids: string[]) => {
   await useHandleData(batchRemoveHospitalSet, ids, '删除所选信息')
-  proTable.value.clearSelection()
-  proTable.value.getTableList()
+  proTable.value?.clearSelection()
+  proTable.value?.getTableList()
 }
 </script>

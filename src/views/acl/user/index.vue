@@ -126,7 +126,7 @@ const openDrawer = async (
         : title === '编辑'
         ? updateAclUser
         : assignUserRoles,
-    getTableList: proTable.value.getTableList,
+    getTableList: proTable.value?.getTableList,
   }
   drawerRef.value.acceptParams(params)
 }
@@ -141,13 +141,13 @@ const handleDelete = async (row: AclUser.ResAclUserList) => {
     return
   }
   await useHandleData(deleteAclUserById, row.id, `删除${row.username}用户`)
-  proTable.value.getTableList()
+  proTable.value?.getTableList()
 }
 
 // *批量删除用户
 const batchDelete = async (ids: string[]) => {
   await useHandleData(batchAclUser, ids, '删除所选用户信息')
-  proTable.value.clearSelection()
-  proTable.value.getTableList()
+  proTable.value?.clearSelection()
+  proTable.value?.getTableList()
 }
 </script>
