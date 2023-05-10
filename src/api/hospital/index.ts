@@ -1,5 +1,6 @@
 import http from '@/utils/http'
 import {
+  HospitalDetailInterfaceRes,
   HospitalListInterfacePageRes,
   HospitalListInterfaceReq,
   HospitalListInterfaceRes,
@@ -81,4 +82,8 @@ export function getCityOrDistrictList(id: number) {
   return http.get<ProvinceInfoInterfaceRes[]>(
     `/admin/cmn/dict/findByParentId/${id}`,
   )
+}
+// 查看医院详情接口
+export function getHospitalDetail(id: string) {
+  return http.get<HospitalDetailInterfaceRes>(`/admin/hosp/hospital/show/${id}`)
 }

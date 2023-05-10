@@ -13,15 +13,15 @@
         <el-button
           type="primary"
           link
-          icon="Edit"
-          @click="handleEdit(scope.row)"
+          icon="View"
+          @click="handleView(scope.row)"
         >
           查看
         </el-button>
         <el-button
           type="primary"
           link
-          icon="Delete"
+          icon="Document"
           @click="handleDelete(scope.row)"
         >
           排班
@@ -29,7 +29,7 @@
         <el-button
           type="primary"
           link
-          icon="Delete"
+          icon="Warning"
           @click="handleDelete(scope.row)"
         >
           {{ scope.row.status === 0 ? '上线' : '下线' }}
@@ -48,8 +48,12 @@ import {
   getProvinceList,
 } from '@/api/hospital'
 import ProTable from '@/components/ProTable/src/ProTable.vue'
-import { ProvinceInfoInterfaceRes } from '@/api/hospital/types'
-
+import {
+  HospitalListInterfaceRes,
+  ProvinceInfoInterfaceRes,
+} from '@/api/hospital/types'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 // *获取 ProTable 元素，调用其获取刷新数据方法
 const proTable = ref<InstanceType<typeof ProTable>>()
 // 地区数据
@@ -270,9 +274,15 @@ const dataCallback = (data: any) => {
     total: data?.totalElements,
   }
 }
-// 编辑
-const handleEdit = (row: any) => {
+// 查看
+const handleView = (row: HospitalListInterfaceRes) => {
   console.log(row)
+  router.push({
+    path: '/hospital/hospitallist/show',
+    query: {
+      id: row.id,
+    },
+  })
 }
 
 /* 生命周期 */

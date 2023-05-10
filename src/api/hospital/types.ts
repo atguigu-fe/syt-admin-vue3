@@ -48,6 +48,7 @@ export interface HospitalListInterfacePageRes<T> {
 // 医院列表响应接口
 export interface HospitalListInterfaceRes {
   id: string
+  intro?: string
   createTime: string
   updateTime: string
   isDeleted: number
@@ -65,14 +66,16 @@ export interface HospitalListInterfaceRes {
   address: string
   route: string
   status: number
-  bookingRule: {
-    cycle: number
-    releaseTime: string
-    stopTime: string
-    quitDay: number
-    quitTime: string
-    rule: string[]
-  }
+  bookingRule?: BookingRuleInterface
+}
+// bookingRule条件
+export interface BookingRuleInterface {
+  cycle: number
+  releaseTime: string
+  stopTime: string
+  quitDay: number
+  quitTime: string
+  rule: string[]
 }
 // 省份信息
 export interface ProvinceInfoInterfaceRes {
@@ -87,4 +90,9 @@ export interface ProvinceInfoInterfaceRes {
   dictCode: null | string
   hasChildren: boolean
   label?: string
+}
+// 查看医院详情接口
+export interface HospitalDetailInterfaceRes {
+  hospital: HospitalListInterfaceRes
+  bookingRule: BookingRuleInterface
 }
