@@ -141,6 +141,7 @@ import ColSetting from './components/ColSetting.vue'
  * @param toolButton    - 是否显示表格功能按钮 ==> 非必传（默认为true）
  * @param selectId      - 当表格数据多选时，所指定的字段名 ==> 非必传（默认为 id）
  * @param searchCol     - 表格搜索项 每列占比配置 ==> 非必传 { xs: 1, sm: 2, md: 2, lg: 3, xl: 4 }
+ * @param resetCallback      - 点击重置时候所额外执行的回调函数 ==> 非必传（默认为()=>{}）
  */
 interface ProTableProps extends Partial<Omit<TableProps<any>, 'data'>> {
   columns: ColumnProps[]
@@ -153,6 +154,7 @@ interface ProTableProps extends Partial<Omit<TableProps<any>, 'data'>> {
   toolButton?: boolean
   selectId?: string
   searchCol?: number | Record<BreakPoint, number>
+  resetCallback?: () => void
 }
 
 // 🌟组件props的ts定义必须在组件中声明
@@ -164,6 +166,7 @@ const props = withDefaults(defineProps<ProTableProps>(), {
   toolButton: true,
   selectId: 'id',
   searchCol: () => ({ xs: 1, sm: 2, md: 2, lg: 3, xl: 4 }),
+  resetCallback: () => ({}),
 })
 
 // --------------------表格-----------------------
@@ -185,7 +188,7 @@ const {
   searchParam,
   loading,
   search,
-  reset,
+  reset: resetTable,
   getTableList,
   handleSizeChange,
   handleCurrentChange,
@@ -195,7 +198,10 @@ const {
   props.pagination,
   props.dataCallback,
 )
-
+const reset = () => {
+  resetTable()
+  props.resetCallback()
+}
 // 监听页面 initParam 改化，重新获取表格数据
 watch(() => props.initParam, getTableList, { deep: true })
 

@@ -1,7 +1,6 @@
 <template>
   <component
-    v-if="column.search?.el"
-    :is="`el-${column.search.el}`"
+    :is="column.search?.render ?? `el-${column.search.el}`"
     v-bind="handleSearchProps"
     v-model="searchParam[column.search.key ?? handleProp(column.prop!)]"
     :data="column.search?.el === 'tree-select' ? columnEnum : []"
