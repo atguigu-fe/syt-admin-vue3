@@ -74,3 +74,17 @@ export interface HospitalListInterfaceRes {
     rule: string[]
   }
 }
+// 省份信息
+export interface ProvinceInfoInterfaceRes {
+  id: number
+  createTime: string
+  updateTime: string
+  isDeleted: number
+  param: Record<string, unknown>
+  parentId: number
+  name: string
+  value: string
+  dictCode: null | string
+  hasChildren: boolean
+  label?: string
+}

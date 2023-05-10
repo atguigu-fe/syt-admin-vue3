@@ -6,6 +6,7 @@ import {
   HospitalSetListInterfaceReq,
   HospitalSetListInterfaceRes,
   PageRes,
+  ProvinceInfoInterfaceRes,
 } from '@/api/hospital/types'
 
 /**
@@ -62,5 +63,22 @@ export function getHospitalList(params: HospitalListInterfaceReq) {
       hostype: params.hostype,
       status: params.status,
     },
+  )
+}
+/**
+ * @description  获取省份列表
+ */
+export function getProvinceList() {
+  return http.get<ProvinceInfoInterfaceRes[]>(
+    `/admin/cmn/dict/findByDictCode/Province`,
+  )
+}
+/**
+ * @description  请求市、区列表
+ * @param id
+ */
+export function getCityOrDistrictList(id: number) {
+  return http.get<ProvinceInfoInterfaceRes[]>(
+    `/admin/cmn/dict/findByParentId/${id}`,
   )
 }
