@@ -1,11 +1,11 @@
 <template>
   <component
-    :is="column.search?.render ?? `el-${column.search.el}`"
+    :is="column.search?.render ?? `el-${column.search!.el}`"
     v-bind="handleSearchProps"
-    v-model="searchParam[column.search.key ?? handleProp(column.prop!)]"
+    v-model="searchParam[column.search!.key ?? handleProp(column.prop!)]"
     :data="column.search?.el === 'tree-select' ? columnEnum : []"
     :options="
-      ['cascader', 'select-v2'].includes(column.search?.el) ? columnEnum : []
+      ['cascader', 'select-v2'].includes(column.search!.el as string) ? columnEnum : []
     "
     :placeholder="placeholder"
     :clearable="clearable"
@@ -13,10 +13,10 @@
     start-placeholder="开始时间"
     end-placeholder="结束时间"
   >
-    <template #default="{ data }" v-if="column.search.el === 'cascader'">
+    <template #default="{ data }" v-if="column.search!.el === 'cascader'">
       <span>{{ data[fieldNames.label] }}</span>
     </template>
-    <template v-if="column.search.el === 'select'">
+    <template v-if="column.search!.el === 'select'">
       <component
         :is="`el-option`"
         v-for="(col, index) in columnEnum"
