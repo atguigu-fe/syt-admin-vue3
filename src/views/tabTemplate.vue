@@ -67,6 +67,19 @@ const proTable = ref<InstanceType<typeof ProTable>>()
 // *表格配置项
 const columns: ColumnProps[] = [
   { type: 'selection', fixed: 'left', width: 60 },
+  // {
+  //   prop: 'provinceCode',
+  //   label: '所在省2',
+  //   enum: computed(() => {
+  //     return areaList.provinceList || []
+  //   }) as unknown as EnumProps[],
+  //   fieldNames: { label: 'name', value: 'value' },
+  //   isShow: false,
+  //   width: 100,
+  //   search: {
+  //     el: 'select',
+  //   },
+  // },
   // { type: 'index', label: '#', width: 80 },
   { prop: 'id', label: 'id' },
   {

@@ -204,7 +204,26 @@ const reset = () => {
 }
 // 监听页面 initParam 改化，重新获取表格数据
 watch(() => props.initParam, getTableList, { deep: true })
-
+// 监听页面 columns中的某项enum是否改变，重新设置enum数据 目前只针对select的数据
+watch(
+  () => props.columns,
+  () => {
+    props.columns.forEach((item) => {
+      if (
+        item.search &&
+        item.search.el &&
+        item.search.el === 'select' &&
+        item.enum
+      ) {
+        // 重设数据
+        setEnumMap(item)
+        // 重重对应搜索数据
+        item.prop && (searchParam.value[item.prop] = '')
+      }
+    })
+  },
+  { deep: true },
+)
 //* --------------------表格多选-----------------------
 
 // 表格多选 Hooks
