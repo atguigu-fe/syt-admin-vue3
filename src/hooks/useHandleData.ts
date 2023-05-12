@@ -32,6 +32,7 @@ export const useHandleData = <P = any, R = any>(
         resolve(true)
       })
       .catch((err) => {
+        if (err === 'cancel') return
         ElMessage({
           type: 'error',
           message: `${err.data}`,
