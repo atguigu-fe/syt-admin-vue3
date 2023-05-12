@@ -55,7 +55,7 @@ import SearchFormItem from './components/SearchFormItem.vue'
 interface ProTableProps {
   columns?: ColumnProps[] // 搜索配置列
   searchParam?: { [key: string]: any } // 搜索参数
-  searchCol: number | Record<BreakPoint, number>
+  searchCol?: number | Record<BreakPoint, number>
   search: (params: any) => void // 搜索方法
   reset: (params: any) => void // 重置方法
 }
