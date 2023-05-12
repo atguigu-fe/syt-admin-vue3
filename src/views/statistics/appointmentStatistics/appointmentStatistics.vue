@@ -11,7 +11,7 @@
   </el-card>
 </template>
 <script setup lang="tsx">
-import { computed, reactive, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 // 引入 echarts 核心模块，核心模块提供了 echarts 使用必须要的接口。
 import * as echarts from 'echarts/core'
 import VChart from 'vue-echarts'
@@ -51,7 +51,7 @@ echarts.use([
   LineChart,
 ])
 // 搜索参数：
-const searchParam = reactive({
+const searchParam = ref({
   hosname: '',
   hoscode: '',
   reserveDateBegin: '',
@@ -61,12 +61,12 @@ const searchParam = reactive({
 const suggestItem = ref({} as HospitalListInterfaceRes)
 // 监视搜索参数中hosname的变化
 watch(
-  () => searchParam.hosname,
+  () => searchParam.value.hosname,
   (val) => {
     if (val !== '') {
-      searchParam.hoscode =
+      searchParam.value.hoscode =
         suggestItem.value.hosname &&
-        suggestItem.value.hosname === searchParam.hosname
+        suggestItem.value.hosname === searchParam.value.hosname
           ? suggestItem.value.hoscode
           : ''
     }
@@ -138,9 +138,9 @@ const handleSearch = async () => {
   console.log('search')
   try {
     let params = {
-      hoscode: searchParam.hoscode,
-      reserveDateBegin: searchParam.reserveDateBegin,
-      reserveDateEnd: searchParam.reserveDateEnd,
+      hoscode: searchParam.value.hoscode,
+      reserveDateBegin: searchParam.value.reserveDateBegin,
+      reserveDateEnd: searchParam.value.reserveDateEnd,
     }
     const res = await getAppointmentStatistics(params)
     countMapInfo.value = res.data
@@ -154,12 +154,13 @@ function handleOnSelectedItem(item: HospitalListInterfaceRes) {
 }
 // 重置
 const handleReset = () => {
-  searchParam.hosname.value = {
+  searchParam.value = {
     hosname: '',
     hoscode: '',
     reserveDateBegin: '',
     reserveDateEnd: '',
   }
+  handleSearch()
 }
 const option = ref({
   title: {
