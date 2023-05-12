@@ -49,7 +49,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="tsx">
 import { reactive, ref } from 'vue'
 import { ColumnProps } from '@/components/ProTable/src/types'
 import { useHandleData } from '@/hooks/useHandleData'
@@ -81,6 +81,19 @@ const columns: ColumnProps[] = [
   //   },
   // },
   // { type: 'index', label: '#', width: 80 },
+  {
+    prop: 'logoData',
+    label: '医院LOGO',
+    width: 100,
+    render: ({ row }) => {
+      return (
+        <img
+          style="width:80px;height80px"
+          src={`data:image/png;base64,${row.logoData}`}
+        />
+      )
+    },
+  },
   { prop: 'id', label: 'id' },
   {
     prop: 'hosname',

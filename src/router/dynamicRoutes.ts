@@ -174,4 +174,35 @@ export const dynamicRoutes: RouteRecordRaw[] = [
       },
     ],
   },
+  // 订单管理
+  {
+    name: 'Order',
+    path: '/order',
+    component: LAYOUT,
+    redirect: '/order/orderList',
+    meta: {
+      title: '订单管理',
+      icon: 'Lock',
+    },
+    children: [
+      {
+        name: 'Order/orderList',
+        path: '/order/orderList',
+        component: () => import('@/views/order/orderList/orderList.vue'),
+        meta: {
+          title: '订单列表',
+          icon: 'UserFilled',
+        },
+      },
+      {
+        name: 'Order/Show',
+        path: '/order/orderList/show',
+        component: () => import('@/views/order/orderList/show.vue'),
+        meta: {
+          title: '查看',
+          isHide: true,
+        },
+      },
+    ],
+  },
 ]
