@@ -114,7 +114,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
     name: 'Cmn',
     path: '/cmn',
     component: LAYOUT,
-    redirect: '/cmn',
+    redirect: '/cmn/dict',
     meta: {
       title: '数据管理',
       icon: 'Lock',
@@ -201,6 +201,31 @@ export const dynamicRoutes: RouteRecordRaw[] = [
         meta: {
           title: '查看',
           isHide: true,
+        },
+      },
+    ],
+  },
+  // 预约统计
+  {
+    name: 'Statistics',
+    path: '/statistics',
+    component: LAYOUT,
+    redirect: '/statistics/appointmentStatistics',
+    meta: {
+      title: '统计管理',
+      icon: 'Lock',
+    },
+    children: [
+      {
+        name: 'Statistics/appointmentStatistics',
+        path: '/statistics/appointmentStatistics',
+        component: () =>
+          import(
+            '@/views/statistics/appointmentStatistics/appointmentStatistics.vue'
+          ),
+        meta: {
+          title: '预约统计',
+          icon: 'UserFilled',
         },
       },
     ],

@@ -52,6 +52,7 @@ specifiers:
   vite-plugin-vue-setup-extend: ^0.4.0
   vite-svg-loader: ^4.0.0
   vue: ^3.2.45
+  vue-echarts: ^6.5.5
   vue-router: '4'
   vue-tsc: ^1.0.11
 
@@ -67,6 +68,7 @@ dependencies:
   pinia: registry.npmmirror.com/pinia/2.0.30_prq2uz4lho2pwp6irk4cfkrxwu
   pinia-plugin-persistedstate: registry.npmmirror.com/pinia-plugin-persistedstate/3.1.0_pinia@2.0.30
   vue: registry.npmmirror.com/vue/3.2.45
+  vue-echarts: registry.npmmirror.com/vue-echarts/6.5.5_echarts@5.4.1+vue@3.2.45
   vue-router: registry.npmmirror.com/vue-router/4.1.6_vue@3.2.45
 
 devDependencies:
@@ -137,7 +139,7 @@ packages:
   /@vueuse/shared/9.12.0_vue@3.2.45:
     resolution: {integrity: sha512-TWuJLACQ0BVithVTRbex4Wf1a1VaRuSpVeyEd4vMUWl54PzlE0ciFUshKCXnlLuD0lxIaLK4Ypj3NXYzZh4+SQ==}
     dependencies:
-      vue-demi: 0.13.11_vue@3.2.45
+      vue-demi: registry.npmmirror.com/vue-demi/0.13.11_vue@3.2.45
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
@@ -6109,6 +6111,12 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  registry.npmmirror.com/resize-detector/0.3.0:
+    resolution: {integrity: sha512-R/tCuvuOHQ8o2boRP6vgx8hXCCy87H1eY9V5imBYeVNyNVpuL9ciReSccLj2gDcax9+2weXy3bc8Vv+NRXeEvQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/resize-detector/-/resize-detector-0.3.0.tgz}
+    name: resize-detector
+    version: 0.3.0
+    dev: false
+
   registry.npmmirror.com/resolve-from/4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/resolve-from/-/resolve-from-4.0.0.tgz}
     name: resolve-from
@@ -7500,6 +7508,26 @@ packages:
         optional: true
     dependencies:
       vue: registry.npmmirror.com/vue/3.2.45
+    dev: false
+
+  registry.npmmirror.com/vue-echarts/6.5.5_echarts@5.4.1+vue@3.2.45:
+    resolution: {integrity: sha512-KJD1MSyoMQ33q8M4hM45OYeSC+t7LzesIXQOrkRSXv4xhOi0iN+6yEjQuIuqRB9zZGCT2J4bK3eQ+1ttdz4Uag==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-echarts/-/vue-echarts-6.5.5.tgz}
+    id: registry.npmmirror.com/vue-echarts/6.5.5
+    name: vue-echarts
+    version: 6.5.5
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.5
+      echarts: ^5.4.1
+      vue: ^2.6.12 || ^3.1.1
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      echarts: registry.npmmirror.com/echarts/5.4.1
+      resize-detector: registry.npmmirror.com/resize-detector/0.3.0
+      vue: registry.npmmirror.com/vue/3.2.45
+      vue-demi: registry.npmmirror.com/vue-demi/0.13.11_vue@3.2.45
     dev: false
 
   registry.npmmirror.com/vue-eslint-parser/9.1.0_eslint@8.33.0:
