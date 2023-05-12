@@ -2,6 +2,7 @@ import http from '@/utils/http'
 import {
   MemberInfoInterfaceRes,
   MemberUserInfoInterface,
+  PageRes,
 } from '@/api/member/types'
 /**
  * @description 获取会员列表
@@ -11,13 +12,15 @@ export function getMemberList(params: {
   pageNum: number
   pageSize: number
   keyword: string
+  authStatus?: number
   createTimeBegin: string
   createTimeEnd: string
 }) {
-  return http.get<MemberUserInfoInterface[]>(
+  return http.get<PageRes<MemberUserInfoInterface[]>>(
     `admin/user/${params.pageNum}/${params.pageSize}`,
     {
       keyword: params.keyword,
+      authStatus: params.authStatus,
       createTimeBegin: params.createTimeBegin,
       createTimeEnd: params.createTimeEnd,
     },
@@ -37,4 +40,11 @@ export function getMemberInfo(id: string) {
  */
 export function lockMember(params: { id: number; status: number }) {
   return http.get(`admin/user/lock/${params.id}/${params.status}`)
+}
+/**
+ * @description 同意or不同意审批接口
+ * @param params
+ */
+export function approval(params: { id: number; authStatus: number }) {
+  return http.get(`admin/user/approval/${params.id}/${params.authStatus}`)
 }

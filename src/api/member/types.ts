@@ -58,3 +58,10 @@ export interface MemberUserInfoInterface {
   authStatus: number
   status: number
 }
+// * 分页响应参数
+export interface PageRes<T> {
+  records: T[]
+  pages?: number
+  size?: number
+  total: number
+}
