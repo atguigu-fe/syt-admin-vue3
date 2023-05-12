@@ -154,7 +154,12 @@ function handleOnSelectedItem(item: HospitalListInterfaceRes) {
 }
 // 重置
 const handleReset = () => {
-  console.log('reset')
+  searchParam.hosname.value = {
+    hosname: '',
+    hoscode: '',
+    reserveDateBegin: '',
+    reserveDateEnd: '',
+  }
 }
 const option = ref({
   title: {
