@@ -64,6 +64,7 @@ interface ProTableProps {
 const props = withDefaults(defineProps<ProTableProps>(), {
   columns: () => [],
   searchParam: () => ({}),
+  searchCol: () => ({ xs: 1, sm: 2, md: 2, lg: 3, xl: 4 }),
 })
 
 // 获取响应式设置

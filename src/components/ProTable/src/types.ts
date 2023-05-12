@@ -42,6 +42,7 @@ export interface EnumProps {
 
 export type SearchType =
   | 'input'
+  | 'autocomplete'
   | 'input-number'
   | 'select'
   | 'select-v2'
