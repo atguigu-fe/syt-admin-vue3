@@ -131,4 +131,47 @@ export const dynamicRoutes: RouteRecordRaw[] = [
       },
     ],
   },
+  // 会员管理
+  {
+    name: 'Member',
+    path: '/member',
+    component: LAYOUT,
+    redirect: '/member/memberList',
+    meta: {
+      title: '会员管理',
+      icon: 'Lock',
+    },
+    children: [
+      {
+        name: 'Member/memberList',
+        path: '/member/memberList',
+        component: () => import('@/views/member/memberList/memberList.vue'),
+        meta: {
+          title: '会员列表',
+          icon: 'UserFilled',
+        },
+      },
+      {
+        name: 'Member/certificationApprovalList',
+        path: '/member/certificationApprovalList',
+        component: () =>
+          import(
+            '@/views/member/certificationApprovalList/certificationApprovalList.vue'
+          ),
+        meta: {
+          title: '认证审批列表',
+          icon: 'UserFilled',
+        },
+      },
+      {
+        name: 'Member/Show',
+        path: '/member/memberList/show',
+        component: () => import('@/views/member/memberList/show.vue'),
+        meta: {
+          title: '查看',
+          isHide: true,
+        },
+      },
+    ],
+  },
 ]

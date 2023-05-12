@@ -1,5 +1,5 @@
 <template>
-  <el-card>home_page</el-card>
+  <el-card>certificationApprovalList</el-card>
 </template>
 <script setup lang="ts">
 // import { ref, reactive, toRefs, computed, watch } from 'vue'
