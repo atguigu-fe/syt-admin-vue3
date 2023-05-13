@@ -14,6 +14,7 @@
           type="primary"
           link
           icon="View"
+          v-auth="['btn.hospitalList.view']"
           @click="handleView(scope.row)"
         >
           查看
@@ -22,6 +23,7 @@
           type="primary"
           link
           icon="Document"
+          v-auth="['btn.hospitalList.schedule']"
           @click="handleSchedule(scope.row)"
         >
           排班
@@ -30,6 +32,7 @@
           type="primary"
           link
           icon="Warning"
+          v-auth="['btn.hospitalList.onlineOrOffline']"
           @click="updateHospitalStatus(scope.row)"
         >
           {{ scope.row.status === 0 ? '上线' : '下线' }}

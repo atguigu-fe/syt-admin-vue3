@@ -14,6 +14,7 @@
           type="primary"
           link
           icon="Edit"
+          v-auth="['btn.orderList.view']"
           @click="handleView(scope.row)"
         >
           查看

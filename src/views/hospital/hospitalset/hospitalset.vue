@@ -11,7 +11,7 @@
         <el-button
           type="primary"
           icon="Plus"
-          v-auth="['btn.User.add']"
+          v-auth="['btn.hospitalSet.add']"
           @click="handleAdd()"
         >
           添加
@@ -20,6 +20,7 @@
           type="danger"
           icon="Delete"
           plain
+          v-auth="['btn.hospitalSet.bulkDeletion']"
           @click="batchDelete(scope.selectedListIds as string[])"
           :disabled="!scope.isSelected"
         >
@@ -32,6 +33,7 @@
           type="primary"
           link
           icon="Edit"
+          v-auth="['btn.hospitalSet.edit']"
           @click="handleEdit(scope.row)"
         >
           编辑
@@ -40,6 +42,7 @@
           type="primary"
           link
           icon="Delete"
+          v-auth="['btn.hospitalSet.delete']"
           @click="handleDelete(scope.row)"
         >
           删除

@@ -14,6 +14,7 @@
           type="primary"
           link
           icon="View"
+          v-auth="['btn.certificationApprovalList.view']"
           @click="handleView(scope.row)"
         >
           查看
@@ -22,6 +23,7 @@
           type="primary"
           link
           icon="CircleCheck"
+          v-auth="['btn.certificationApprovalList.pass']"
           @click="handlePass(scope.row, 2)"
         >
           通过
@@ -30,6 +32,7 @@
           type="primary"
           link
           icon="CircleClose"
+          v-auth="['btn.certificationApprovalList.unPass']"
           @click="handlePass(scope.row, -1)"
         >
           不通过

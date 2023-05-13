@@ -14,6 +14,7 @@
           type="primary"
           link
           icon="View"
+          v-auth="['btn.memberList.view']"
           @click="handleView(scope.row)"
         >
           查看
@@ -21,6 +22,7 @@
         <el-button
           type="primary"
           link
+          v-auth="['btn.memberList.lockOrUnlock']"
           :icon="scope.row.status === 1 ? 'Lock' : 'Unlock'"
           @click="handleLock(scope.row)"
         >
