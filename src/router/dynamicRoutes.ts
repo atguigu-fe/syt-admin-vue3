@@ -96,6 +96,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
         meta: {
           title: '查看',
           isHide: true,
+          activeMenu: '/hospital/hospitallist',
         },
       },
       {
@@ -105,6 +106,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
         meta: {
           title: '排班',
           isHide: true,
+          activeMenu: '/hospital/hospitallist',
         },
       },
     ],
@@ -170,6 +172,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
         meta: {
           title: '查看',
           isHide: true,
+          activeMenu: '/member/memberList',
         },
       },
     ],
@@ -201,6 +204,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
         meta: {
           title: '查看',
           isHide: true,
+          activeMenu: '/order/orderList',
         },
       },
     ],
