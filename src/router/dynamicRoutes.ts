@@ -67,7 +67,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
     redirect: '/hospital/hospitalset',
     meta: {
       title: '医院管理',
-      icon: 'Lock',
+      icon: 'office-building',
     },
     children: [
       {
@@ -76,7 +76,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
         component: () => import('@/views/hospital/hospitalset/hospitalset.vue'),
         meta: {
           title: '医院设置',
-          icon: 'UserFilled',
+          icon: 'Setting',
         },
       },
       {
@@ -86,7 +86,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
           import('@/views/hospital/hospitallist/hospitallist.vue'),
         meta: {
           title: '医院列表',
-          icon: 'Avatar',
+          icon: 'tickets',
         },
       },
       {
@@ -117,7 +117,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
     redirect: '/cmn/dict',
     meta: {
       title: '数据管理',
-      icon: 'Lock',
+      icon: 'coin',
     },
     children: [
       {
@@ -126,7 +126,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
         component: () => import('@/views/cmn/dict/dict.vue'),
         meta: {
           title: '数据字典',
-          icon: 'UserFilled',
+          icon: 'coin',
         },
       },
     ],
@@ -139,7 +139,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
     redirect: '/member/memberList',
     meta: {
       title: '会员管理',
-      icon: 'Lock',
+      icon: 'UserFilled',
     },
     children: [
       {
@@ -148,7 +148,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
         component: () => import('@/views/member/memberList/memberList.vue'),
         meta: {
           title: '会员列表',
-          icon: 'UserFilled',
+          icon: 'tickets',
         },
       },
       {
@@ -160,7 +160,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
           ),
         meta: {
           title: '认证审批列表',
-          icon: 'UserFilled',
+          icon: 'tickets',
         },
       },
       {
@@ -182,7 +182,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
     redirect: '/order/orderList',
     meta: {
       title: '订单管理',
-      icon: 'Lock',
+      icon: 'tickets',
     },
     children: [
       {
@@ -191,7 +191,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
         component: () => import('@/views/order/orderList/orderList.vue'),
         meta: {
           title: '订单列表',
-          icon: 'UserFilled',
+          icon: 'tickets',
         },
       },
       {
@@ -213,7 +213,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
     redirect: '/statistics/appointmentStatistics',
     meta: {
       title: '统计管理',
-      icon: 'Lock',
+      icon: 'watch',
     },
     children: [
       {
@@ -225,7 +225,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
           ),
         meta: {
           title: '预约统计',
-          icon: 'UserFilled',
+          icon: 'watch',
         },
       },
     ],
