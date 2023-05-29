@@ -19,28 +19,3 @@ export {
   addPermission,
   updatePermission,
 } from './acl/permission'
-
-export { getCategorys1, getCategorys2, getCategorys3 } from './product/category'
-
-export {
-  getTrademarkList,
-  removeTrademark,
-  addTrademark,
-  updateTrademark,
-} from './product/trademark'
-
-export { getActivityList } from './marketing/activity'
-export { getCouponList, removeCoupon } from './marketing/coupon'
-
-export { getClientUserList, lockClientUser } from './client-user/user-list'
-
-export {
-  getBannerList,
-  saveBanner,
-  updateBanner,
-  removeBanner,
-} from './setting/banner'
-
-export { getAttrList, removeAttr, addAttr } from './product/attr'
-
-export { getSkuList } from './product/sku'
